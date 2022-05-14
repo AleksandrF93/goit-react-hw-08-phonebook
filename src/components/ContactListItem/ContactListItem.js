@@ -8,7 +8,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Avatar from '@mui/material/Avatar';
 import DeleteIcon from '@mui/icons-material/Delete';
 import PhoneIcon from '@mui/icons-material/Phone';
-import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
 
 
 const ContactListItem = ({ name, id, number }) => {
@@ -20,9 +20,9 @@ const ContactListItem = ({ name, id, number }) => {
     return (
       <ListItem  key={id}
       secondaryAction={
-          <Button variant="outlined" onClick={() => onDelete(id)} startIcon={<DeleteIcon />}>Delete
-      </Button>}
-    >
+          <IconButton edge="end" aria-label="delete" onClick={() => onDelete(id)}>
+          <DeleteIcon  variant="contained" color="error"  type='submit' />
+        </IconButton>}>
       <ListItemAvatar>
         <Avatar>
           <PhoneIcon/>

@@ -23,34 +23,37 @@ export default function App() {
   return ( !isFetchingCurrentUser && <Container>
     <AppBar />
     <Suspense fullback={<p>Loading...</p>}>
-    <Routes>
+      <Routes>
+        
       <Route path="/" element={
-            <PublicRoute >
-           <HomeView/>
-           </PublicRoute>
+        <PublicRoute >
+          <HomeView/>
+        </PublicRoute>
       } />
+        
       <Route path="/register" element={
-         <PublicRoute restricted>
-           <RegisterView/>
-         </PublicRoute>
+        <PublicRoute restricted>
+          <RegisterView/>
+        </PublicRoute>
       } />
+        
       <Route path="/login" element={
-            <PublicRoute restricted>
-              <LoginView/>
-            </PublicRoute>} />
-            <Route
-            path="contacts"
-            element={
-              <PrivateRoute>
-                <ContactsView />
-              </PrivateRoute>
-            }
-          />
-          <Route path="*" element={
-          <PublicRoute >
-           <HomeView />
-           </PublicRoute>}
-          />
+        <PublicRoute restricted>
+          <LoginView/>
+          </PublicRoute>} />
+        
+        <Route path="contacts" element={
+          <PrivateRoute>
+            <ContactsView />
+          </PrivateRoute>} />
+        
+      <Route path="*" element={
+          <PrivateRoute>
+            <ContactsView />
+          </PrivateRoute>}
+        />
+
+         
       </Routes>
     </Suspense>
   </Container>  
